@@ -1,0 +1,122 @@
+[
+    {
+        "id" : 1001,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Nike Runallday 2",
+        "quantity" : 100,
+        "price" : 245.00,
+        "color" : ["black"],
+        "size" : [{"value" : 7,"total" : 10},
+                  {"value" : 8,"total" : 10},
+                  {"value" : 9, "total" : 10},
+                  {"value" : 10,"total" : 10},
+                  {"value" : 11, "total" : 10}
+                ],
+        "image" : "images/nike1.jpg"
+    },
+    {
+        "id" : 1002,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Nike Downshifter 9 Black",
+        "quantity" : 100,
+        "price" : 199.00,
+        "color" : ["black"],
+        "size" : [{"value" : 7,"total" : 10},
+                    {"value" : 8,"total" : 10},
+                    {"value" : 9, "total" : 10},
+                    {"value" : 10,"total" : 10},
+                    {"value" : 11, "total" : 10}
+                ],
+        "image" : "images/nike2.jpg"
+    },
+    {
+        "id" : 1003,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Nike Air Zoom Pegasus 36",
+        "quantity" : 100,
+        "price" : 495.00,
+        "color" : ["black", "grey"],
+        "size" : [{"value" : 7,"total" : 10},
+            {"value" : 8,"total" : 10},
+            {"value" : 9, "total" : 10},
+            {"value" : 10,"total" : 10},
+            {"value" : 11, "total" : 10}
+        ],
+        "image" : "images/nike3.jpg"
+    },
+    {
+        "id" : 1004,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Nike Runallday 2",
+        "quantity" : 100,
+        "price" : 245.00,
+        "color" : ["black", "grey"],
+        "size" : [{"value" : 7,"total" : 10},
+            {"value" : 8,"total" : 10},
+            {"value" : 9, "total" : 10},
+            {"value" : 10,"total" : 10},
+            {"value" : 11, "total" : 10}
+        ],
+        "image" : "images/nike4.jpg"
+    },
+    {
+        "id" : 1005,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Nike Revolution 5",
+        "quantity" : 100,
+        "price" : 245.00,
+        "color" : ["black"],
+        "size" : [{"value" : 7,"total" : 10},
+            {"value" : 8,"total" : 10},
+            {"value" : 9, "total" : 10},
+            {"value" : 10,"total" : 10},
+            {"value" : 11, "total" : 10}
+        ],
+        "image" : "images/nike5.jpg"
+    },
+    {
+        "id" : 1006,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Nike Downshifter 9",
+        "quantity" : 100,
+        "price" : 179.00,
+        "color" : ["black", "grey"],
+        "size" : [{"value" : 7,"total" : 10},
+            {"value" : 8,"total" : 10},
+            {"value" : 9, "total" : 10},
+            {"value" : 10,"total" : 10},
+            {"value" : 11, "total" : 10}
+        ],
+        "image" : "images/nike6.jpg"
+    },
+    {
+        "id" : 1007,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Flex Experience Rn 8",
+        "quantity" : 100,
+        "price" : 179.00,
+        "color" : ["black"],
+        "size" : [{"value" : 7,"total" : 10},
+            {"value" : 8,"total" : 10},
+            {"value" : 9, "total" : 10},
+            {"value" : 10,"total" : 10},
+            {"value" : 11, "total" : 10}
+        ],
+        "image" : "images/nike7.jpg"
+    },
+    {
+        "id" : 1008,
+        "brand" : "Nike",
+        "name" : "Nike Men Running Revolution 4",
+        "quantity" : 100,
+        "price" : 149.00,
+        "color" : ["black"],
+        "size" : [{"value" : 7,"total" : 10},
+            {"value" : 8,"total" : 10},
+            {"value" : 9, "total" : 10},
+            {"value" : 10,"total" : 10},
+            {"value" : 11, "total" : 10}
+        ],
+        "image" : "images/nike8.jpg"
+    }
+]

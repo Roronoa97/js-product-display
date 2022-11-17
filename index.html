@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Display</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <style>
+        body{
+            background-color: rgb(0,91,150);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="input-group mb-3">
+            <input type="text" id="input-search" class="form-control" placeholder="Search Products">
+            <div class="input-group-append">
+              <button  type="button" id="btn-search" class="btn bg-primary">Search</button>
+            </div>
+        </div>
+        <ul class="list-group" id="output"></ul>
+        <div id="products" class="row"></div>
+        <div id="pagination"></div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+
+        var page = 1;
+        var row = 8;
+        var count = 0;
+
+        //fetch local json data using fetch() 
+        function setProduct(){
+            fetch('product.json')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                
+                let startPage = (page - 1) * row;
+                let endPage = startPage + row;
+
+                let trimData = data.slice(startPage, endPage);
+                let totalPage = Math.ceil(data.length / row ); //Math.ceil Round up Math.floor Round down
+
+                //send Trim Data to display
+                displayProduct(trimData);
+
+                //call only once
+                while(count == 0){
+                    displayPageButton(totalPage);
+                    count++;
+                }
+            })
+        }
+
+        function displayProduct(trimData){
+            let output = '';
+            trimData.forEach((product) => {
+                const colorAvailable = product.color.length;
+                output += `
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="${product.image}">
+                                    <p class="card-text">${colorAvailable} Color(s)</p>
+                                    <hr>
+                                    <h5 class="card-title text-truncate">${product.name}</h5>
+                                    <small class="card-text">MYR : ${product.price}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `; 
+            });
+            document.getElementById("products").innerHTML = output;
+            
+        }
+
+        function displayPageButton(pages){
+            let pageBtn = document.getElementById("pagination");
+            for(let i = 1; i <= pages; i++){
+                pageBtn.innerHTML+= `<button value="${i}" class="pg-btn">${i}</button>`;
+            }
+
+            const buttons = document.querySelectorAll('.pg-btn');
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    page = button.value;
+
+                    setProduct();
+                })
+            })
+        }
+        
+        const inputField = document.getElementById('input-search').addEventListener('keyup', () => {
+            let fieldVal = document.getElementById('input-search').value;
+            //let regex = `/${fieldVal}/i`;
+            let regex = new RegExp(fieldVal , "i");
+
+            fetch('product.json')
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let output = '';
+                data.forEach((product) => {
+                    if(fieldVal != 0 && product.name.search(regex) != -1){
+                        output +=  `<a href="#">
+                                        <li class="list-group-item">${product.name}</li>
+                                    </a>`;
+                    }
+                });
+                document.getElementById('output').innerHTML = output;
+            })
+        })
+
+        setProduct();
+       
+    </script>
+</body>
+</html>
